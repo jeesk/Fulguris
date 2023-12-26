@@ -320,9 +320,6 @@ dependencies {
     // permissions
     implementation 'com.anthonycr.grant:permissions:1.1.2'
 
-    // proxy support
-    implementation 'net.i2p.android:client:0.9.45'
-    implementation 'net.i2p.android:helper:0.9.5'
 
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
 
@@ -331,10 +328,6 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.17'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
 
-    // tor proxy
-    final def netCipherVersion = '2.0.0-alpha1'
-    implementation "info.guardianproject.netcipher:netcipher:2.1.0"
-    implementation "info.guardianproject.netcipher:netcipher-webkit:$netCipherVersion"
 
     // memory leak analysis
     debugImplementation "com.squareup.leakcanary:leakcanary-android:2.7"
@@ -361,6 +354,7 @@ dependencies {
 
     // Logs
     implementation 'com.jakewharton.timber:timber:5.0.1'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }
 
 kapt {
@@ -405,13 +399,13 @@ def getEnabledLocales() {
     def langs = potentialLanguageDirs.findAll {
         // Only select locales where strings.xml exists
         // Some locales might only contain e.g. sumo URLS in urls.xml, and should be skipped (see es vs es-ES/es-MX/etc)
-        return  file(new File(it, "strings.xml")).exists()
-    } .collect {
+        return file(new File(it, "strings.xml")).exists()
+    }.collect {
         // And reduce down to actual values-* names
         return it.name
-    } .collect {
+    }.collect {
         return it.substring("values-".length())
-    } .collect {
+    }.collect {
         if (it.length() > 3 && it.contains("-r")) {
             // Android resource dirs add an "r" prefix to the region - we need to strip that for java usage
             // Add 1 to have the index of the r, without the dash

@@ -123,7 +123,6 @@ public class LocaleListPreference extends ListPreference {
 
         private static byte[] getPixels(final Bitmap b) {
             final int byteCount = b.getAllocationByteCount();
-
             final ByteBuffer buffer = ByteBuffer.allocate(byteCount);
             try {
                 b.copyPixelsToBuffer(buffer);

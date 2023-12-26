@@ -272,7 +272,7 @@ fun ImageView.setImageForTheme(bitmap: Bitmap, isDarkTheme: Boolean) {
  * To be able to have tooltips working before API level 26
  * See: https://stackoverflow.com/a/61873888/3969362
  */
-@BindingAdapter("app:tooltipText")
+@BindingAdapter("tooltipText")
 fun View.bindTooltipText(tooltipText: String) {
     TooltipCompat.setTooltipText(this, tooltipText)
 }

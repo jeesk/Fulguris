@@ -79,6 +79,7 @@ import android.view.inputmethod.InputMethodManager
 import android.webkit.CookieManager
 import android.webkit.ValueCallback
 import android.webkit.WebChromeClient.CustomViewCallback
+import android.webkit.WebView
 import android.webkit.WebView.HitTestResult.SRC_ANCHOR_TYPE
 import android.webkit.WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE
 import android.widget.*
@@ -3061,7 +3062,7 @@ abstract class WebBrowserActivity : ThemedBrowserActivity(),
      * Used when going forward in tab history
      */
     private fun animateTabFlipLeft(aTab: View?) {
-        assertNull(iTabAnimator)
+/*        assertNull(iTabAnimator)
         aTab?.let{
             // Adjust camera distance to avoid clipping
             val scale = resources.displayMetrics.density
@@ -3076,14 +3077,14 @@ abstract class WebBrowserActivity : ThemedBrowserActivity(),
                         iTabAnimator = null;
                         }
                     })
-        }
+        }*/
     }
 
     /**
      * Used when going back in tab history
      */
     private fun animateTabFlipRight(aTab: View?) {
-        assertNull(iTabAnimator)
+/*        assertNull(iTabAnimator)
 
         aTab?.let{
             // Adjust camera distance to avoid clipping
@@ -3100,7 +3101,7 @@ abstract class WebBrowserActivity : ThemedBrowserActivity(),
                         iTabAnimator = null;
                         }
                     })
-        }
+        }*/
     }
 
 
